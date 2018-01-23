@@ -43,11 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Delegates\Photo.cs" />
+    <Compile Include="Delegates\PhotoFilters.cs" />
+    <Compile Include="Delegates\PhotoProcessor.cs" />
+    <Compile Include="Generics\Book.cs" />
+    <Compile Include="Generics\DiscountCalculator.cs" />
+    <Compile Include="Generics\Generics.cs" />
+    <Compile Include="Generics\Nullable.cs" />
+    <Compile Include="Generics\Product.cs" />
+    <Compile Include="Generics\Utilitiescs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Delegates\README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
