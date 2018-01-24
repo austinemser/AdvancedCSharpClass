@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AdvancedCSharp.Delegates;
+using AdvancedCSharp.Generics;
+using AdvancedCSharp.Lambda;
 
 namespace AdvancedCSharp
 {
@@ -11,10 +13,16 @@ namespace AdvancedCSharp
     {
         static void Main(string[] args)
         {
-            var number = new Nullable<int>(5);
+            var number = new System.Nullable<int>(5);
             Console.WriteLine("Has Value ?" + number.HasValue);
             Console.WriteLine("Value: " + number.GetValueOrDefault());
 
+            Delegates();
+            Lambda();
+        }
+
+        static void Delegates()
+        {
             var photoProcessor = new PhotoProcessor();
             var filters = new PhotoFilters();
 
@@ -25,6 +33,43 @@ namespace AdvancedCSharp
 
             photoProcessor.Process("test", filterHandler);
         }
+
+        static void Lambda()
+        {
+            // args => expression
+            //number => number * number;
+            // () => ...
+            // x => ...
+            // (x, y, z) => ...
+
+            int NumFunc(int number) => number * number;
+            Func<int, int> numFunc = number => number * number;
+
+            const int factor = 5;
+
+            Func<int, int> multiplier = n => n * factor;
+
+            // Get books that are cheaper than $10
+            var books = new BookRepository().GetBooks();
+
+            //var cheapBooks = books.FindAll(IsCheaperThan10Dollars);
+
+            var cheapBooks = books.FindAll(b => b.Price < 10);
+
+            foreach (var book in cheapBooks)
+            {
+                Console.WriteLine(book.Title);
+            }
+
+            Console.WriteLine(NumFunc(5));
+
+        }
+
+        static bool IsCheaperThan10Dollars(Book book)
+        {
+            return book.Price < 10;
+        }
+           
 
         static void RemoveRedEyeFilter(Photo photo)
         {
