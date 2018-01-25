@@ -46,6 +46,9 @@
     <Compile Include="Delegates\Photo.cs" />
     <Compile Include="Delegates\PhotoFilters.cs" />
     <Compile Include="Delegates\PhotoProcessor.cs" />
+    <Compile Include="Events\MessageService.cs" />
+    <Compile Include="Events\Video.cs" />
+    <Compile Include="Events\VideoEncoder.cs" />
     <Compile Include="Generics\Book.cs" />
     <Compile Include="Generics\DiscountCalculator.cs" />
     <Compile Include="Generics\Generics.cs" />
@@ -53,12 +56,14 @@
     <Compile Include="Generics\Product.cs" />
     <Compile Include="Generics\Utilitiescs.cs" />
     <Compile Include="Lambda\BookRepository.cs" />
+    <Compile Include="Events\MailService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Delegates\README.md" />
+    <None Include="Events\README.md" />
     <None Include="Lambda\README.md" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

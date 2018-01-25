@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AdvancedCSharp.Delegates;
+using AdvancedCSharp.Events;
 using AdvancedCSharp.Generics;
 using AdvancedCSharp.Lambda;
 
 namespace AdvancedCSharp
 {
-    class Program
+    partial class Program
     {
         static void Main(string[] args)
         {
@@ -19,6 +20,7 @@ namespace AdvancedCSharp
 
             Delegates();
             Lambda();
+            Events();
         }
 
         static void Delegates()
@@ -63,6 +65,19 @@ namespace AdvancedCSharp
 
             Console.WriteLine(NumFunc(5));
 
+        }
+
+        static void Events()
+        {
+            var video = new Video() {Title = "Video 1"};
+            var videoEncoder = new VideoEncoder(); // publisher
+            var mailService = new MailService(); // subscriber
+            var messageService = new MessageService();  // subscriber
+
+            videoEncoder.VideoEncoded += mailService.OnVideoEncoded;
+            videoEncoder.VideoEncoded += messageService.OnVideoEncoded;
+
+            videoEncoder.Encode(video);
         }
 
         static bool IsCheaperThan10Dollars(Book book)
